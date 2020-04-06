@@ -13,7 +13,7 @@ param(
     [string] $Password,
 
     # Force git commit when package is updated but not pushed.
-    [switch] $Force,
+    [switch] $Force= $true,
 
     # Commit strategy: 
     #  single    - 1 commit with all packages
