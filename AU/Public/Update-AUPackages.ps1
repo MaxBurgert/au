@@ -282,7 +282,10 @@ function run_plugins() {
             $plugin_path = $Options.PluginPath + "/$key.ps1"
             if(!(Test-Path $plugin_path)) { continue }
         }
-
+        
+        Write-Host "Running $key with the following parameters:"
+        Write-Host @params
+        
         try {
             Write-Host "`nRunning $key"
             & $plugin_path $Info @params *>&1 | tee $tmp_dir\plugins\$key | Write-Host
