@@ -273,7 +273,7 @@ function run_plugins() {
     mkdir -Force $tmp_dir\plugins | Out-Null
     foreach ($key in $Options.Keys) {
         $params = $Options.$key
-        Write-Host "Params: $params"
+        Write-Host $params
         if ($params -isnot [HashTable]) { continue }
 
         $plugin_path = "$PSScriptRoot/../Plugins/$key.ps1"
@@ -286,7 +286,6 @@ function run_plugins() {
         
         Write-Host "Running $key with the following parameters:"
         Write-Host @params
-        Write-Host "Info: $Info"
         
         try {
             Write-Host "`nRunning $key"
